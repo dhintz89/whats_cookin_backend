@@ -10,17 +10,17 @@ class RecipesController < ApplicationController
         # create (or find) Recipe instance based on chosen recipe ID param
         @recipe = Recipe.find_by(id: params[:recipe_id])
         if @recipe
-            # render @recipe.id.to_json
+            render json: @recipe.id.to_json
         else
             @recipe = Recipe.build_from_data(params[:recipe_id])
-            head(:no_content)
-            # render @recipe.id.to_json
+            # head(:no_content)
+            render json: @recipe.id
         end
     end
 
     def show
         # render recipe info based on passed ID param
-        @recipe = Recipe.find(params[:id])
-        render json: @recipe.to_json
+        recipe = Recipe.find(params[:id])
+        render json: recipe, serializer: RecipeSerializer
     end
 end
