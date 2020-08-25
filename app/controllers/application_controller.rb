@@ -23,7 +23,9 @@ class ApplicationController < ActionController::API
     end
 
     def current_user
+        puts "current_user function 1"
         if decoded_token
+            puts "current_user function 2"
             user_id = decoded_token[0]['user_id']
             puts "current_user function: user_id: #{user_id}; "
             @user = User.find_by(id: user_id)
