@@ -12,9 +12,10 @@ class ApplicationController < ActionController::API
     def decoded_token
         if auth_header
             token = auth_header.split(' ')[1]
+            puts "decoded_token function: token: #{token}"
             begin
                 JWT.decode(token, ENV["JWT_Secret"])
-                puts "decoded_token function: token: #{token}"
+                puts "decoded_token function: decoded_token: #{JWT.decode(token, ENV["JWT_Secret"])}"
             rescue JWT::DecodeError
                 nil
             end
