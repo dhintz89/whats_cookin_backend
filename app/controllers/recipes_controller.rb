@@ -22,4 +22,11 @@ class RecipesController < ApplicationController
         recipe = Recipe.find(params[:id])
         render json: recipe, serializer: RecipeSerializer
     end
+
+    def send_shoplist
+        # send selected recipe-ingredients as shoplist
+        @recipe = Recipe.find(params[:id])
+        ShoplistMailer.with(recipe: @recipe, user: current_user).new_list_email.deliver_later
+        render json: "Shoplist sent"
+    end
 end
