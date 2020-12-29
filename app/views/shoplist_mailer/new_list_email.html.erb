@@ -6,11 +6,10 @@
   <body>
     <h1>Hello <%= @user.name %>,</h1>
     <p>
-      Here is your shopping list for <%= @recipe.title %>:
+      Here is your shopping list for <strong><%= @recipe_name %></strong>:
     </p>
-    <br>
-    <ul><% @recipe.ingredients.each do |ing| %>
-      <li><%= ing.quantity %><%= ing.measure %> - <%= ing.name %></li>
+    <ul><% @shoplist.each do |item| %>
+      <li><%= item %></li>
     <% end %></ul>
 
     <p>Thank you for using <strong>What's Cookin'</strong>. Enjoy your meal!</p>

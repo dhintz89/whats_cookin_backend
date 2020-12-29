@@ -1,9 +1,9 @@
 Hello <%= @user.name %>,
 
-Here is your shopping list for <%= @recipe.title %>:
+Here is your shopping list for <%= @recipe_name %>:
 
-<% @recipe.ingredients.each do |ing| %>
-  <%= ing.quantity %><%= ing.measure %> - <%= ing.name %>
+<% @shoplist.each do |item| %>
+  <%= item %>
 <% end %>
 
 Thank you for using What's Cookin'. Enjoy your meal!
