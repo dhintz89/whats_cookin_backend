@@ -31,9 +31,3 @@ class RecipesController < ApplicationController
         render json: "Shoplist sent"
     end
 end
-
-# private
-
-# def shoplist_params
-#     params.permit(:username, :password, session: [:username, :password, :user_id])
-# end
